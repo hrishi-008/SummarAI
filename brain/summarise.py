@@ -1,3 +1,39 @@
+"""
+Content Summarization Module using LLM.
+
+This module handles the generation of summaries from scraped content using the Groq LLM.
+It performs the following functions:
+1. Loads scraped content from JSON
+2. Processes content through the LLM
+3. Generates structured, markdown-formatted summaries
+4. Handles multiple results with proper indexing
+
+The module uses the Groq API to:
+- Generate context-aware summaries
+- Maintain markdown formatting
+- Preserve important links
+- Handle access denied cases
+
+Features:
+- Configurable temperature and token limits
+- Markdown-formatted output
+- Link preservation
+- Error handling for access denied content
+
+Configuration:
+    Requires GROQ_API key in secrets22.py
+    Uses llama3-8b-8192 model
+    Temperature: 0.6
+    Max tokens: 1700
+
+Dependencies:
+    - groq: For LLM API access
+    - json: For data loading
+
+Author: Hrishikesh
+Date: March 2024
+"""
+
 from groq import Groq
 from secrets22 import GROQ_API
 import json

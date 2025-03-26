@@ -1,3 +1,37 @@
+"""
+Google Search Results Scraper Module.
+
+This module handles the automated scraping of Google search results using Selenium.
+It performs the following functions:
+1. Sets up a headless Chrome browser
+2. Performs a Google search for the given query
+3. Extracts the top search results (titles and links)
+4. Saves results to a JSON file
+
+The module uses Selenium WebDriver to:
+- Navigate to Google search
+- Click through necessary UI elements
+- Extract search results
+- Handle dynamic content loading
+
+Output:
+    Saves search results to 'searchResults/gsearch_results.json' in the format:
+    {
+        'query': str,
+        'results': [
+            {'title': str, 'link': str},
+            ...
+        ]
+    }
+
+Dependencies:
+    - selenium: For web automation
+    - json: For data storage
+
+Author: Hrishikesh
+Date: March 2024
+"""
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time, json

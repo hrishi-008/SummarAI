@@ -1,13 +1,32 @@
-'''
-TODO
-1. selelnium link scraper - google_search_results.py --> gsearch_results.json
-2. join above with website scraper - scrape_websites.py --> scraped_data.json
-3. pass scraped_data.json to faiss db. Use faiss_db.py
-4. take query pass to faiss db and the llm --> summarise.py
-5. Display summarised content along with the links
-6. FUTURE SCOPE - Give summary for top 3 websites 
-    * This can be done by giving individual content of the website through a retriever.
-'''
+"""
+Main application file for SummarAI (formerly SearchGPT).
+
+This module implements the core functionality of the SummarAI application, which:
+1. Takes user queries through a Streamlit interface
+2. Orchestrates the search, scraping, and summarization pipeline
+3. Displays results and saves summaries
+
+The application follows this workflow:
+1. User enters a query in the Streamlit interface
+2. Google search results are scraped (google_search_results.py)
+3. Website content is extracted from search results (scrape_websites.py)
+4. Content is indexed and retrieved using FAISS (faiss_db.py)
+5. Retrieved content is summarized using LLM (summarise.py)
+6. Results are displayed and saved to markdown
+
+Classes:
+    SearchGpt: Main class that orchestrates the entire pipeline
+
+Dependencies:
+    - streamlit: For the web interface
+    - google_search_results: For scraping Google search results
+    - scrape_websites: For extracting website content
+    - summarise: For generating summaries
+    - faiss_db: For vector storage and retrieval
+
+Author: Hrishikesh
+Date: March 2024
+"""
 import streamlit as st
 import google_search_results as gsr
 import scrape_websites as scraper
