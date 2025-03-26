@@ -1,3 +1,44 @@
+"""
+Website Content Scraper Module.
+
+This module handles the extraction of content from websites listed in the search results.
+It performs the following functions:
+1. Reads search results from 'gsearch_results.json'
+2. For each URL in the results:
+   - Makes an HTTP request to fetch the webpage
+   - Parses the HTML content using BeautifulSoup
+   - Extracts the main text content
+   - Cleans and formats the text
+3. Saves the scraped content to a JSON file
+
+The module includes error handling for:
+- Access denied websites
+- Invalid URLs
+- Malformed HTML content
+
+Output:
+    Saves scraped content to 'searchResults/scraped_data.json' in the format:
+    {
+        'query': str,
+        'results': [
+            {
+                'title': str,
+                'link': str,
+                'text': str
+            },
+            ...
+        ]
+    }
+
+Dependencies:
+    - requests: For HTTP requests
+    - beautifulsoup4: For HTML parsing
+    - json: For data storage
+
+Author: Hrishikesh
+Date: March 2024
+"""
+
 import json
 import requests
 from bs4 import BeautifulSoup as bs
